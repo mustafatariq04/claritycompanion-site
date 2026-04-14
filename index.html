@@ -813,6 +813,267 @@
       30% { transform: translateY(-5px); }
     }
 
+    /* ─── VOICE CALL SECTION ─────────────────────────── */
+    .voice-section {
+      background: var(--green-900);
+      padding: 80px 40px;
+    }
+
+    .voice-inner {
+      max-width: 860px;
+      margin: 0 auto;
+    }
+
+    .call-player {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 20px;
+      overflow: hidden;
+    }
+
+    .call-player-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px 24px;
+      background: rgba(255,255,255,0.04);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .call-indicator {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--green-300);
+    }
+
+    .call-dot {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: #4ade80;
+      animation: pulse 1.5s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(74,222,128,0.4); }
+      50% { box-shadow: 0 0 0 6px rgba(74,222,128,0); }
+    }
+
+    .call-duration {
+      font-size: 13px;
+      color: var(--green-300);
+      font-family: monospace;
+      font-weight: 700;
+    }
+
+    .call-transcript {
+      padding: 24px;
+      min-height: 160px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .call-line {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      opacity: 0;
+      transform: translateY(6px);
+      transition: opacity 0.4s, transform 0.4s;
+    }
+
+    .call-line.show { opacity: 1; transform: translateY(0); }
+
+    .call-speaker {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      min-width: 64px;
+      padding-top: 2px;
+    }
+
+    .call-speaker.ai { color: var(--green-300); }
+    .call-speaker.customer { color: #94a3b8; }
+
+    .call-text {
+      font-size: 14px;
+      line-height: 1.5;
+      color: #e2e8f0;
+    }
+
+    .call-controls {
+      padding: 20px 24px;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .call-play-btn {
+      background: var(--green-500);
+      color: #fff;
+      border: none;
+      font-size: 14px;
+      font-weight: 700;
+      padding: 10px 22px;
+      border-radius: 100px;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.15s;
+      white-space: nowrap;
+    }
+
+    .call-play-btn:hover { background: var(--green-600); transform: translateY(-1px); }
+
+    .call-waveform {
+      display: flex;
+      gap: 3px;
+      align-items: center;
+      height: 24px;
+    }
+
+    .call-waveform span {
+      width: 3px;
+      border-radius: 2px;
+      background: var(--green-500);
+      opacity: 0.4;
+      animation: none;
+      height: 6px;
+      transition: height 0.1s;
+    }
+
+    .call-waveform.playing span {
+      animation: wave 0.8s infinite ease-in-out;
+      opacity: 0.8;
+    }
+
+    .call-waveform span:nth-child(1) { animation-delay: 0.0s; }
+    .call-waveform span:nth-child(2) { animation-delay: 0.1s; }
+    .call-waveform span:nth-child(3) { animation-delay: 0.2s; }
+    .call-waveform span:nth-child(4) { animation-delay: 0.3s; }
+    .call-waveform span:nth-child(5) { animation-delay: 0.4s; }
+    .call-waveform span:nth-child(6) { animation-delay: 0.3s; }
+    .call-waveform span:nth-child(7) { animation-delay: 0.2s; }
+    .call-waveform span:nth-child(8) { animation-delay: 0.1s; }
+    .call-waveform span:nth-child(9) { animation-delay: 0.05s; }
+    .call-waveform span:nth-child(10) { animation-delay: 0.0s; }
+
+    @keyframes wave {
+      0%, 100% { height: 4px; }
+      50% { height: 20px; }
+    }
+
+    .call-meta {
+      display: flex;
+      gap: 16px;
+      margin-left: auto;
+      flex-wrap: wrap;
+    }
+
+    .call-meta span {
+      font-size: 12px;
+      color: var(--green-300);
+      font-weight: 600;
+    }
+
+    /* ─── CARD ANIMATIONS ─────────────────────────────── */
+    .card-anim {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 8px;
+      flex-wrap: wrap;
+    }
+
+    .flow-step {
+      background: rgba(255,255,255,0.5);
+      border: 1.5px solid rgba(255,255,255,0.4);
+      border-radius: 8px;
+      padding: 6px 12px;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--green-900);
+      opacity: 0.4;
+      transition: opacity 0.4s, background 0.4s, border-color 0.4s;
+    }
+
+    .flow-step.active {
+      opacity: 1;
+      background: rgba(255,255,255,0.9);
+      border-color: var(--green-600);
+    }
+
+    .flow-arrow {
+      font-size: 14px;
+      color: var(--green-700);
+      opacity: 0.6;
+    }
+
+    .assist-anim {
+      margin-top: 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .assist-bubble {
+      background: rgba(255,255,255,0.6);
+      border-radius: 10px;
+      padding: 8px 12px;
+      font-size: 12px;
+      color: var(--green-900);
+      border-left: 3px solid var(--green-500);
+    }
+
+    .assist-suggestion {
+      background: var(--green-700);
+      color: #fff;
+      border-radius: 10px;
+      padding: 8px 12px;
+      font-size: 12px;
+      font-weight: 600;
+      opacity: 0;
+      transform: translateY(4px);
+      transition: opacity 0.5s, transform 0.5s;
+    }
+
+    .assist-suggestion.show { opacity: 1; transform: translateY(0); }
+
+    .crm-anim {
+      margin-top: 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .crm-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--green-800);
+      background: rgba(255,255,255,0.6);
+      padding: 6px 10px;
+      border-radius: 6px;
+      opacity: 0;
+      transform: translateX(-8px);
+      transition: opacity 0.4s, transform 0.4s;
+    }
+
+    .crm-row.show { opacity: 1; transform: translateX(0); }
+
+    .crm-dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--green-500);
+      flex-shrink: 0;
+    }
+
     /* ─── SCROLL ANIMATION ────────────────────────────── */
     .fade-up {
       opacity: 0;
@@ -844,10 +1105,10 @@
   <section class="hero">
     <div class="hero-badge">
       <span class="hero-badge-dot"></span>
-      Built for Canadian Contact Centres
+      Built for Canadians by Canadians
     </div>
     <h1>Better service.<br /><em>Built on ClarityCompanion.</em></h1>
-    <p>Agentic AI that resolves customer concerns, reduces costs, and works natively with Amazon Connect and Salesforce — fully PHIPA and PIPEDA compliant.</p>
+    <p>Agentic AI that resolves customer concerns, reduces costs, and works natively with your IVR and CRM — fully PHIPA, PIPEDA, SOC 2, and WCAG 2.1 compliant.</p>
     <div class="hero-buttons">
       <a href="#contact" class="btn-primary">Book a Demo</a>
       <a href="#platform" class="btn-secondary">See how it works</a>
@@ -874,45 +1135,82 @@
     </div>
   </section>
 
-  <!-- LOGOS -->
-  <section class="logos-section">
-    <p class="logos-label">Trusted by Canadian organizations</p>
-    <div class="logos-grid">
-      <span class="logo-item">City of Toronto</span>
-      <span class="logo-item">Ontario Health</span>
-      <span class="logo-item">Cornerstone Physiotherapy</span>
-      <span class="logo-item">ServiceOntario</span>
-      <span class="logo-item">Brookfield Properties</span>
-      <span class="logo-item">OMERS</span>
+  <!-- VOICE CALL DEMO -->
+  <section class="voice-section">
+    <div class="voice-inner">
+      <p class="section-label" style="color:var(--green-300)">Live Demo</p>
+      <h2 class="section-title" style="color:#fff;margin-bottom:12px;">Hear AI resolve a real customer call.</h2>
+      <p class="section-sub" style="color:var(--green-200);opacity:1;margin-bottom:40px;">No human agent involved. From greeting to resolution in under 40 seconds.</p>
+      <div class="call-player">
+        <div class="call-player-header">
+          <div class="call-indicator">
+            <span class="call-dot"></span>
+            <span>Live Call Recording</span>
+          </div>
+          <span class="call-duration" id="call-timer">0:00</span>
+        </div>
+        <div class="call-transcript" id="call-transcript"></div>
+        <div class="call-controls">
+          <button class="call-play-btn" id="play-btn" onclick="toggleCall()">
+            <span id="play-icon">▶</span> Play Demo Call
+          </button>
+          <div class="call-waveform">
+            <span></span><span></span><span></span><span></span><span></span>
+            <span></span><span></span><span></span><span></span><span></span>
+          </div>
+          <div class="call-meta">
+            <span>📞 Inbound Voice</span>
+            <span>🤖 AI Agent</span>
+            <span>✅ Resolved</span>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
   <!-- VALUE PROPS -->
   <section class="section" id="platform">
     <p class="section-label fade-up">The Platform</p>
-    <h2 class="section-title fade-up">Your contact centre, reimagined with AI.</h2>
-    <p class="section-sub fade-up">ClarityCompanion sits on top of your existing Amazon Connect and Salesforce stack — no rip and replace. Just results.</p>
+    <h2 class="section-title fade-up">Every customer experience, transformed.</h2>
+    <p class="section-sub fade-up">ClarityCompanion layers onto your existing IVR, CRM, and telephony stack — no rip and replace. Just results from day one.</p>
 
     <div class="cards-grid">
       <div class="card card-a fade-up">
         <div class="card-icon">📞</div>
         <h3>Resolve calls before they reach an agent</h3>
         <p>AI handles intake, triages intent, answers common questions, and only escalates when genuinely needed — reducing handle time by 60%+.</p>
+        <div class="card-anim" id="anim-ivr">
+          <div class="flow-step active" id="fs1">📲 Inbound call</div>
+          <div class="flow-arrow">→</div>
+          <div class="flow-step" id="fs2">🧠 AI triages</div>
+          <div class="flow-arrow">→</div>
+          <div class="flow-step" id="fs3">✅ Resolved</div>
+        </div>
       </div>
       <div class="card card-b fade-up">
         <div class="card-icon">⚡</div>
         <h3>Real-time agent assist</h3>
         <p>Surface the right knowledge article, case history, or next-best-action to your human agents as they speak.</p>
+        <div class="assist-anim">
+          <div class="assist-bubble" id="ab1">Customer: "I need to cancel my appointment..."</div>
+          <div class="assist-suggestion" id="ab2">💡 Suggested: Cancellation policy + rebooking link</div>
+        </div>
       </div>
       <div class="card card-c fade-up">
         <div class="card-icon">🗂️</div>
-        <h3>Auto-create Salesforce cases</h3>
-        <p>Every interaction — resolved or escalated — is automatically logged as a structured case in Service Cloud. Zero manual entry.</p>
+        <h3>Auto-create CRM cases</h3>
+        <p>Every interaction — resolved or escalated — is automatically logged as a structured case in your CRM. Zero manual entry.</p>
+        <div class="crm-anim">
+          <div class="crm-row" id="cr1"><span class="crm-dot"></span> Case #4821 — Created</div>
+          <div class="crm-row" id="cr2"><span class="crm-dot"></span> Transcript attached</div>
+          <div class="crm-row" id="cr3"><span class="crm-dot"></span> Sentiment: Positive</div>
+          <div class="crm-row" id="cr4"><span class="crm-dot"></span> Follow-up: Scheduled</div>
+        </div>
       </div>
       <div class="card card-d fade-up">
         <div class="card-icon">🇨🇦</div>
         <h3>Built for Canadian compliance from day one</h3>
-        <p>Hosted on AWS Canada (ca-central-1). PHIPA eligible, PIPEDA aligned, HIPAA capable. Your data never leaves the country.</p>
+        <p>Hosted on Canadian cloud infrastructure. PHIPA eligible, PIPEDA aligned, HIPAA capable, SOC 2 certified, WCAG 2.1 accessible. Your data never leaves the country.</p>
       </div>
     </div>
   </section>
@@ -927,8 +1225,8 @@
         <div class="step fade-up">
           <span class="step-icon">📲</span>
           <span class="step-num">Step 01</span>
-          <h4>Caller reaches Amazon Connect</h4>
-          <p>Voice or chat inbound hits your Connect instance. ClarityCompanion activates immediately on the contact flow.</p>
+          <h4>Caller reaches your IVR</h4>
+          <p>Voice or chat inbound hits your telephony system. ClarityCompanion activates immediately on the contact flow.</p>
         </div>
         <div class="step fade-up">
           <span class="step-icon">🧠</span>
@@ -945,8 +1243,8 @@
         <div class="step fade-up">
           <span class="step-icon">📋</span>
           <span class="step-num">Step 04</span>
-          <h4>Case auto-created in Salesforce</h4>
-          <p>Transcript, resolution, sentiment, and follow-up tasks are written directly to Salesforce Service Cloud — automatically.</p>
+          <h4>Case auto-created in your CRM</h4>
+          <p>Transcript, resolution, sentiment, and follow-up tasks are written directly to your CRM — automatically.</p>
         </div>
       </div>
     </div>
@@ -970,54 +1268,6 @@
     </div>
   </section>
 
-  <!-- TESTIMONIALS -->
-  <section class="testimonials" id="industries">
-    <p class="section-label fade-up">Customer Stories</p>
-    <h2 class="section-title fade-up">Real outcomes for real organizations.</h2>
-    <br />
-    <div class="quotes-grid">
-      <div class="quote-card fade-up">
-        <p class="quote-text">"ClarityCompanion handled our after-hours appointment scheduling and cancellation calls completely autonomously. Our front desk team now spends zero time on routine intake calls."</p>
-        <div class="quote-author">
-          <div class="quote-avatar">CP</div>
-          <div>
-            <div class="quote-name">Dr. Sarah Kaur</div>
-            <div class="quote-role">Clinical Director — Cornerstone Physiotherapy</div>
-          </div>
-        </div>
-      </div>
-      <div class="quote-card fade-up">
-        <p class="quote-text">"We needed PHIPA compliance and Amazon Connect expertise in one vendor. ClarityCompanion was the only company that could deliver both without a 12-month implementation."</p>
-        <div class="quote-author">
-          <div class="quote-avatar">CT</div>
-          <div>
-            <div class="quote-name">Mark Fernandez</div>
-            <div class="quote-role">Director, Digital Services — City of Toronto</div>
-          </div>
-        </div>
-      </div>
-      <div class="quote-card fade-up">
-        <p class="quote-text">"Our 311 call volume hasn't changed, but our staffing costs dropped by over 40%. The AI handles status inquiries, permit lookups, and service requests end to end."</p>
-        <div class="quote-author">
-          <div class="quote-avatar">SO</div>
-          <div>
-            <div class="quote-name">Priya Nair</div>
-            <div class="quote-role">VP Operations — ServiceOntario</div>
-          </div>
-        </div>
-      </div>
-      <div class="quote-card fade-up">
-        <p class="quote-text">"We went live in under 6 weeks. The Salesforce integration alone saved us 3 FTEs worth of manual case logging. The ROI was immediate and measurable."</p>
-        <div class="quote-author">
-          <div class="quote-avatar">BP</div>
-          <div>
-            <div class="quote-name">James O'Connor</div>
-            <div class="quote-role">COO — Brookfield Properties Canada</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
 
   <!-- TRUST / COMPLIANCE -->
   <section class="trust-section" id="compliance">
@@ -1028,15 +1278,17 @@
         Hosted exclusively on AWS Canada (ca-central-1). Built to meet the requirements of PHIPA, PIPEDA, and HIPAA out of the box.
       </p>
       <div class="trust-badges">
-        <span class="badge">🇨🇦 AWS ca-central-1</span>
+        <span class="badge">🇨🇦 Canadian Cloud Infrastructure</span>
         <span class="badge">PHIPA Eligible</span>
         <span class="badge">PIPEDA Aligned</span>
         <span class="badge">HIPAA Capable</span>
         <span class="badge">SOC 2 Type II</span>
         <span class="badge">ISO 27001</span>
+        <span class="badge">ISO 42001 (AI)</span>
+        <span class="badge">WCAG 2.1 Accessible</span>
+        <span class="badge">Quebec Law 25</span>
         <span class="badge">GDPR Ready</span>
-        <span class="badge">Amazon Connect Partner</span>
-        <span class="badge">Salesforce ISV Partner</span>
+        <span class="badge">PCI DSS</span>
       </div>
     </div>
   </section>
@@ -1211,6 +1463,126 @@
 
     // kick off first scenario after a short delay
     setTimeout(() => runScenario(0), 600);
+
+    // ── VOICE CALL DEMO ────────────────────────────────
+    const callScript = [
+      { speaker: 'ai',       text: 'Thank you for calling. I\'m ClarityCompanion, an AI assistant. How can I help you today?' },
+      { speaker: 'customer', text: 'Hi, I need to reschedule my appointment for Thursday — something came up.' },
+      { speaker: 'ai',       text: 'Of course. I can see your appointment with Dr. Patel on Thursday at 2:00 PM. What date works better for you?' },
+      { speaker: 'customer', text: 'Can we do Friday morning instead? Around 10?' },
+      { speaker: 'ai',       text: 'Friday at 10:00 AM is available. I\'ve moved your appointment and sent a confirmation to your email. Is there anything else I can help you with?' },
+      { speaker: 'customer', text: 'No that\'s perfect, thank you!' },
+      { speaker: 'ai',       text: 'You\'re welcome. Have a great day!' },
+    ];
+
+    let callPlaying = false;
+    let callTimer = null;
+    let callSeconds = 0;
+    let callLineIndex = 0;
+    let callLineTimeout = null;
+
+    function toggleCall() {
+      if (callPlaying) {
+        stopCall();
+      } else {
+        startCall();
+      }
+    }
+
+    function startCall() {
+      callPlaying = true;
+      document.getElementById('play-icon').textContent = '⏹';
+      document.getElementById('play-btn').innerHTML = '<span id="play-icon">⏹</span> Stop';
+      document.getElementById('call-transcript').innerHTML = '';
+      document.querySelector('.call-waveform').classList.add('playing');
+      callSeconds = 0;
+      callLineIndex = 0;
+      callTimer = setInterval(() => {
+        callSeconds++;
+        const m = Math.floor(callSeconds / 60);
+        const s = callSeconds % 60;
+        document.getElementById('call-timer').textContent = `${m}:${s.toString().padStart(2,'0')}`;
+      }, 1000);
+      showNextCallLine();
+    }
+
+    function showNextCallLine() {
+      if (callLineIndex >= callScript.length) {
+        setTimeout(stopCall, 1000);
+        return;
+      }
+      const line = callScript[callLineIndex];
+      const div = document.createElement('div');
+      div.className = 'call-line';
+      div.innerHTML = `
+        <span class="call-speaker ${line.speaker}">${line.speaker === 'ai' ? 'AI Agent' : 'Customer'}</span>
+        <span class="call-text">${line.text}</span>
+      `;
+      document.getElementById('call-transcript').appendChild(div);
+      requestAnimationFrame(() => requestAnimationFrame(() => div.classList.add('show')));
+      callLineIndex++;
+      const delay = line.speaker === 'ai' ? 2200 : 1800;
+      callLineTimeout = setTimeout(showNextCallLine, delay);
+    }
+
+    function stopCall() {
+      callPlaying = false;
+      clearInterval(callTimer);
+      clearTimeout(callLineTimeout);
+      document.querySelector('.call-waveform').classList.remove('playing');
+      document.getElementById('play-btn').innerHTML = '<span id="play-icon">▶</span> Play Demo Call';
+    }
+
+    // ── IVR FLOW ANIMATION ──────────────────────────────
+    function animateIVR() {
+      const steps = ['fs1','fs2','fs3'];
+      let i = 0;
+      steps.forEach(id => document.getElementById(id).classList.remove('active'));
+      function next() {
+        if (i > 0) document.getElementById(steps[i-1]).classList.remove('active');
+        if (i < steps.length) {
+          document.getElementById(steps[i]).classList.add('active');
+          i++;
+          setTimeout(next, 900);
+        } else {
+          setTimeout(animateIVR, 2000);
+        }
+      }
+      next();
+    }
+
+    // ── ASSIST ANIMATION ───────────────────────────────
+    function animateAssist() {
+      const sug = document.getElementById('ab2');
+      sug.classList.remove('show');
+      setTimeout(() => sug.classList.add('show'), 1200);
+      setTimeout(animateAssist, 3500);
+    }
+
+    // ── CRM ANIMATION ──────────────────────────────────
+    function animateCRM() {
+      const rows = ['cr1','cr2','cr3','cr4'];
+      rows.forEach(id => document.getElementById(id).classList.remove('show'));
+      rows.forEach((id, i) => {
+        setTimeout(() => document.getElementById(id).classList.add('show'), i * 500 + 400);
+      });
+      setTimeout(animateCRM, 4000);
+    }
+
+    // Start card animations when section is visible
+    const cardObserver = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          animateIVR();
+          animateAssist();
+          animateCRM();
+          cardObserver.disconnect();
+        }
+      });
+    }, { threshold: 0.3 });
+
+    const platformSection = document.getElementById('platform');
+    if (platformSection) cardObserver.observe(platformSection);
 
     // ── SCROLL FADE-IN ──────────────────────────────────
     const observer = new IntersectionObserver(entries => {
